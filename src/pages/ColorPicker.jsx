@@ -1,8 +1,11 @@
 import React from "react";
 import { ColorPickerComponent } from "@syncfusion/ej2-react-inputs";
 
-import { EditorData } from "../data/dummy";
 import { Header } from "../components";
+
+const change = (args) => {
+    document.getElementById("preview").style.backgroundColor = args.currentValue.hex;
+};
 
 const ColorPicker = () => {
     return (
@@ -13,6 +16,12 @@ const ColorPicker = () => {
                 <div className="flex justify-center items-center gap-20 flex-wrap">
                     <div>
                         <p classNamme="text-2xl font-semibold mt-2 mb-4">Inline Palettes</p>
+                        <ColorPickerComponent id="inline-palette" mode="Palette" modeSwitcher={false} inline showButtons={false} change={change} />
+                    </div>
+
+                    <div>
+                        <p classNamme="text-2xl font-semibold mt-2 mb-4">Inline Picker</p>
+                        <ColorPickerComponent id="inline-palette" mode="Picker" modeSwitcher={false} inline showButtons={false} change={change} />
                     </div>
                 </div>
             </div>
